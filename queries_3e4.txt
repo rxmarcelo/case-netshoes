@@ -1,0 +1,9 @@
+3) select cod_pedido, desc_produto, quantidade 
+from produtos p
+	inner join pedidos ped on 
+            p.cod_produto = ped.cod_produto
+        inner join itens_pedidos iped on
+          ped.cod_pedido = iped.cod_pedido
+order by quantidade desc;
+
+4) select id, descricao from produtos where nomeTime ='alemanha';
