@@ -1,23 +1,19 @@
 function mascaraDeTelefone(telefone) {
+    let telAtual = telefone.toString();
+    let tipoTel = telAtual.length
+    let telFormatado = ''
 
-    var textoAtual = telefone.toString();
-    var tipoTel = textoAtual.length
-    console.log (tipoTel.length);
-    var textoAjustado = ''
+    const tomaSlice = (n1, n2) => {
+        return telAtual.slice(n1, n2)
+    }
 
     if (tipoTel === 11) {
-        const parte1 = textoAtual.slice(0, 2);
-        const parte2 = textoAtual.slice(2, 7);
-        const parte3 = textoAtual.slice(7, 11);
-        textoAjustado = `(${parte1}) ${parte2}-${parte3}`
+        telFormatado = `(${tomaSlice(0, 2)}) ${tomaSlice(2, 7)}-${tomaSlice(7, 11)}`
     } else if (tipoTel === 10) {
-        const parte1 = textoAtual.slice(0, 2);
-        const parte2 = textoAtual.slice(2, 6);
-        const parte3 = textoAtual.slice(6, 10);
-        textoAjustado = `(${parte1}) ${parte2}-${parte3}`
+        telFormatado = `(${tomaSlice(0, 2)}) ${tomaSlice(2, 6)}-${tomaSlice(6, 10)}`
     } else {
-        textoAjustado = null
+        telFormatado = null
     }
-    
-    return textoAjustado
+
+    return telFormatado
 }
