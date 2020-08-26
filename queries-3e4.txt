@@ -1,0 +1,46 @@
+3)
+SELECT COD_PRODUTO, DESC_PRODUTO, COUNT(*) AS QUANTIDADE
+FROM ITENS_PEDIDOS GROUP BY COD_PRODUTO
+HAVING COUNT(*) > 1
+ORDER BY QUANTIDADE DESC
+
+4)
+Simulação de banco:
+[
+  {
+    _id: 123456,
+    "descricao": "Camisa Alemanha Masculina 1986 Retrô"
+  },
+  {
+    _id: 123457,
+    "descricao": "Camisa Alemanha Feminina 1986 Retrô"
+  },
+  {
+    _id: 123458,
+    "descricao": "Camisa Argentina Masculina 1986 Retrô"
+  },
+  {
+    _id: 123459,
+    "descricao": "Camisa Argentina Feminina 1986 Retrô"
+  }
+]
+
+Consulta:
+db.produto.find({
+  "descricao": {
+    "$regex": "Alemanha"
+  }
+})
+
+
+Output:
+[
+  {
+    "_id": 123456,
+    "descricao": "Camisa Alemanha Masculina 1986 Retrô"
+  },
+  {
+    "_id": 123457,
+    "descricao": "Camisa Alemanha Feminina 1986 Retrô"
+  }
+]
