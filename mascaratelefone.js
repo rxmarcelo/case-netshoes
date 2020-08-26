@@ -1,4 +1,4 @@
-function mascaraDeTelefone(telefone) {
+function formatarTelefone(telefone) {
     let telAtual = telefone.toString();
     let tipoTel = telAtual.length
     let telFormatado = ''
